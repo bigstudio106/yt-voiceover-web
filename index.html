@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voiceover Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: auto; padding: 20px; }
+        label, textarea, select, input, button { display: block; width: 100%; margin-top: 10px; }
+        button { background-color: #4CAF50; color: white; padding: 10px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Voiceover Generator using ElevenLabs API</h2>
+    <form method="POST">
+        <label>API Key:</label>
+        <input type="text" name="api_key" required>
+
+        <label>Choose Voice:</label>
+        <select name="voice">
+            {% for v in voices %}
+                <option value="{{ v }}">{{ v }}</option>
+            {% endfor %}
+        </select>
+
+        <label>File Name (without .mp3):</label>
+        <input type="text" name="filename" value="voiceover">
+
+        <label>Script (Hindi/Unicode supported):</label>
+        <textarea name="script" rows="10" required></textarea>
+
+        <button type="submit">Generate & Download</button>
+    </form>
+</body>
+</html>
