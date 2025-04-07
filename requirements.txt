@@ -2,4 +2,3 @@ flask
 requests
 pydub
 gunicorn
-python_version >= 3.7
